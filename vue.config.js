@@ -7,5 +7,10 @@ module.exports = {
     autoRouting: {
       chunkNamePrefix: 'page-'
     }
-  }
+  },
+  devServer: {
+    watchOptions: {
+      poll: true,
+    },
+  },
 }
