@@ -12,6 +12,7 @@
             :loading="table.loading"
             :page="tableOptions.page"
             :items-per-page="tableOptions.itemsPerPage"
+            id="table-list"
           >
             <template v-slot:item.actions="{ item }">
               <router-link class="float-right text-decoration-none" :to=" '/todos/' + item.id ">Подробнее</router-link>
@@ -26,11 +27,11 @@
         <v-card-title>Фильтр</v-card-title>
         <v-card-text>
           <v-form @submit.prevent="onSubmitFilters">
-            <v-text-field label="Поиск" v-model="table.filters.search"/>
+            <v-text-field label="Поиск" v-model="table.filters.search" id="search"/>
             
             <div>
               <v-btn @click="onResetFilters" color="secondary">Сбросить</v-btn>
-              <v-btn class="float-right" type="submit" color="primary">Поиск</v-btn>
+              <v-btn class="float-right" type="submit" color="primary" id="subFilter">Поиск</v-btn>
             </div>
           </v-form>
         </v-card-text>

@@ -1,7 +1,7 @@
-let defaultState= {
+export let defaultState= {
     options: {
-        page: 0,
-        itemsPerPage: 0,
+        page: 1,
+        itemsPerPage: 15,
         sortBy: [],
         sortDesc: [],
         groupBy: [],
@@ -41,12 +41,14 @@ export default {
             commit('mutOptions', {...options})
         },
         setFilters({commit}, filters){
-            console.log(defaultState.filters)
             sessionStorage.setItem('list_todo_filters', JSON.stringify(filters))
             commit('mutFilters', {...filters})
         },
         resetFilters({dispatch}){
             dispatch('setFilters', defaultState.filters)
+        },
+        resetOptions({dispatch}){
+            dispatch('setOptions', defaultState.options)
         }
     }
 }
